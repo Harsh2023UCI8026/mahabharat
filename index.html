@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mahabharata Quiz</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .timer-container {
+            background-color: rgba(178, 31, 31, 0.8);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        button {
+            color: blueviolet;
+            font-size: 30px;
+            background-color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px 0;
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        button:hover {
+            background-color: greenyellow;
+            font-size: 40px;
+            transition: 0.5s;
+            border-radius: 30px 0px 20px 0px;
+            transform: translateX(10px);
+        }
+        
+        .submit-container {
+            margin: 40px 0;
+        }
+        
+        #submit-btn {
+            background: linear-gradient(to right, #ffcc00, #ff6600);
+            color: #1a2a6c;
+            font-weight: bold;
+            font-size: 1.8rem;
+            padding: 20px 50px;
+            border-radius: 50px;
+            width: auto;
+            text-align: center;
+            margin: 0 auto;
+            display: inline-block;
+        }
+        
+        #submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        .result {
+            background-color: rgba(26, 42, 108, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 600px;
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        #score {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.1rem;
+        }
+        
+        .question-counter {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            button {
+                font-size: 24px;
+            }
+            
+            button:hover {
+                font-size: 28px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+         
+        <p>Test Your Knowledge of the Ancient Epic</p>
+        <div class="timer-container">
+            Time Left: <span id="timer">3:00</span>
+        </div>
+    </div>
+    
+    <div class="question-counter">Question 1 of 10</div>
+    <h1>Q1: What was the original (ancient) name of the Mahabharata?</h1>
+    <button onclick="handleAnswer(1, 'wrong')">(a) Kurukshetra</button><br><br>
+    <button onclick="handleAnswer(1, 'wrong')">(b) Shrimad Mahabharata</button><br><br>
+    <button onclick="handleAnswer(1, 'wrong')">(c) Bharata</button><br><br>
+    <button onclick="handleAnswer(1, 'right')">(d) Jaya Samhita</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 2 of 10</div>
+    <h1>Q2: Which god gave Amba a garland that would help her find someone who could kill Bhishma?</h1>
+    <button onclick="handleAnswer(2, 'wrong')">(a) Shiva</button><br><br>
+    <button onclick="handleAnswer(2, 'right')">(b) Kartikeya</button><br><br>
+    <button onclick="handleAnswer(2, 'wrong')">(c) Vishnu</button><br><br>
+    <button onclick="handleAnswer(2, 'wrong')">(d) Lord Krishna</button><br><br>
+    <br><br><br>
+    
+    <div class="question-counter">Question 3 of 10</div>
+    <h1>Q3: In Mahabharat, What was the real name of Bheem's mother?</h1>
+    <button onclick="handleAnswer(3, 'wrong')">(a) Mata Kunti</button><br><br>
+    <button onclick="handleAnswer(3, 'wrong')">(b) Mata Madri</button><br><br>
+    <button onclick="handleAnswer(3, 'right')">(c) Mata Pritha</button><br><br>
+    <button onclick="handleAnswer(3, 'wrong')">(d) Mata Gandhari</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 4 of 10</div>
+    <h1>Q4: According to ancient texts, who is referred to as a "Sutputra"?</h1>
+    <button onclick="handleAnswer(4, 'wrong')">(a) Son of a charioteer</button><br><br>
+    <button onclick="handleAnswer(4, 'wrong')">(b) Son of a Brahmin man and a Kshatriya woman</button><br><br>
+    <button onclick="handleAnswer(4, 'right')">(c) Son of a Kshatriya man and a Brahmin woman</button><br><br>
+    <button onclick="handleAnswer(4, 'wrong')">(d) Son of a Vaishya and a Shudra</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 5 of 10</div>
+    <h1>Q5: Which son of Karna survived the Kurukshetra War and participated in Yudhishthira's Ashwamedha Yajna?</h1>
+    <button onclick="handleAnswer(5, 'wrong')">(a) Vrishasena</button><br><br>
+    <button onclick="handleAnswer(5, 'right')">(b) Vrishaketu</button><br><br>
+    <button onclick="handleAnswer(5, 'wrong')">(c) Satyasena</button><br><br>
+    <button onclick="handleAnswer(5, 'wrong')">(d) Vrihanta</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 6 of 10</div>
+    <h1>Q6: In the Mahabharata, if Bhishma was the first Kaurava commander in the Kurukshetra War, who was the last?</h1>
+    <button onclick="handleAnswer(6, 'wrong')">(a) Karna</button><br><br>
+    <button onclick="handleAnswer(6, 'wrong')">(b) Ashwatthama</button><br><br>
+    <button onclick="handleAnswer(6, 'wrong')">(c) Kripacharya</button><br><br>
+    <button onclick="handleAnswer(6, 'right')">(d) Shalya</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 7 of 10</div>
+    <h1>Q7: Why did the Earth goddess curse Karna according to the Mahabharata?</h1>
+    <button onclick="handleAnswer(7, 'wrong')">(a) For killing a cow</button><br><br>
+    <button onclick="handleAnswer(7, 'wrong')">(b) For removing a poor Brahmin's cow from his chariot</button><br><br>
+    <button onclick="handleAnswer(7, 'right')">(c) For disrespecting her soil</button><br><br>
+    <button onclick="handleAnswer(7, 'wrong')">(d) For lying to Parashurama</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 8 of 10</div>
+    <h1>Q8: Why did Balarama not participate in the Kurukshetra War?</h1>
+    <button onclick="handleAnswer(8, 'wrong')">(a) He was preparing for an attack on Magadha during that time</button><br><br>
+    <button onclick="handleAnswer(8, 'wrong')">(b) He was bound by a vow not to fight in human conflicts</button><br><br>
+    <button onclick="handleAnswer(8, 'right')">(c) He went on a pilgrimage, unwilling to choose between Duryodhana and the Pandavas</button><br><br>
+    <button onclick="handleAnswer(8, 'wrong')">(d) He did not approve of Krishna siding with the Pandavas</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 9 of 10</div>
+    <h1>Q9: According to Vyasa's Mahabharata, what is the meaning of the word "Krishna" in the context of the epic?</h1>
+    <button onclick="handleAnswer(9, 'wrong')">(a) The Dark One</button><br><br>
+    <button onclick="handleAnswer(9, 'wrong')">(b) The Omnipresent</button><br><br>
+    <button onclick="handleAnswer(9, 'wrong')">(c) The One Who Attracts All</button><br><br>
+    <button onclick="handleAnswer(9, 'right')">(d) All of the above</button>
+    <br><br><br>
+    
+    <div class="question-counter">Question 10 of 10</div>
+    <h1>Q10: What was the name of the only Kaurava who openly opposed the disrobing of Draupadi?</h1>
+    <button onclick="handleAnswer(10, 'wrong')">(a) Yuyutsu</button><br><br>
+    <button onclick="handleAnswer(10, 'wrong')">(b) Chitrasena</button><br><br>
+    <button onclick="handleAnswer(10, 'right')">(c) Vikarna</button><br><br>
+    <button onclick="handleAnswer(10, 'wrong')">(d) Sulochana</button>
+    <br><br><br>
+    
+    <div class="submit-container">
+        <button id="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+    </div>
+    
+    <div class="result" id="result">
+        <h2>Your Quiz Results</h2>
+        <div id="score">0/10</div>
+        <p id="message">Thanks for testing your knowledge of the Mahabharata!</p>
+    </div>
+    
+    <div class="footer">
+        <p>© 2023 Mahabharata Quiz | Test your knowledge of the ancient epic</p>
+    </div>
+
+    <script>
+        // Quiz state variables
+        let score = 0;
+        let timeLeft = 180; // 10 minutes in seconds
+        let timer;
+        let quizSubmitted = false;
+        let answeredQuestions = new Set();
+        
+        // DOM elements
+        const timerElement = document.getElementById('timer');
+        const resultElement = document.getElementById('result');
+        const scoreElement = document.getElementById('score');
+        const messageElement = document.getElementById('message');
+        const answerButtons = document.querySelectorAll('button');
+        const submitBtn = document.getElementById('submit-btn');
+        
+        // Initialize the quiz
+        function initQuiz() {
+            // Start the timer
+            timer = setInterval(updateTimer, 1000);
+        }
+        
+        // Handle answer selection
+        function handleAnswer(questionNum, answerType) {
+            if (quizSubmitted) return;
+            
+            // Only count each question once
+            if (!answeredQuestions.has(questionNum)) {
+                if (answerType === 'right') {
+                    score++;
+                }
+                answeredQuestions.add(questionNum);
+            }
+            
+            // Show alert based on answer type
+            if (answerType === 'right') {
+                window.alert('This is a correct answer');
+            } else {
+                window.alert('This is a wrong answer');
+            }
+        }
+        
+        // Update timer display
+        function updateTimer() {
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                submitQuiz();
+                return;
+            }
+            
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+        }
+        
+        // Submit quiz and calculate score
+        function submitQuiz() {
+            if (quizSubmitted) return;
+            
+            // Stop the timer
+            clearInterval(timer);
+            quizSubmitted = true;
+            
+            // Show results
+            showResults();
+        }
+        
+        // Display quiz results
+        function showResults() {
+            scoreElement.textContent = `${score}/10`;
+            
+            // Custom message based on score
+            if (score >= 9) {
+                messageElement.textContent = "Excellent! You're a true Mahabharata scholar!";
+            } else if (score >= 7) {
+                messageElement.textContent = "Great job! You have a strong knowledge of the Mahabharata!";
+            } else if (score >= 5) {
+                messageElement.textContent = "Good effort! You know your Mahabharata basics!";
+            } else {
+                messageElement.textContent = "Keep studying! The Mahabharata is a vast epic with many lessons!";
+            }
+            
+            resultElement.style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // Scroll to results
+            resultElement.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Start the quiz when page loads
+        window.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
